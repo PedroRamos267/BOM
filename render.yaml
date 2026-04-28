@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: bom-layconsa
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn bom_dash:server
+    plan: free
