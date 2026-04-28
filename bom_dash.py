@@ -1653,6 +1653,8 @@ def export_excel(n, data, pt_qty):
     out = io.BytesIO()
     wb2.save(out); out.seek(0)
     return dcc.send_bytes(out.read(), "BOM_Explosion.xlsx")
+
+
 server = app.server
 
 if __name__ == "__main__":
