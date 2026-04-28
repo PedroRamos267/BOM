@@ -6,7 +6,8 @@ import dash_bootstrap_components as dbc
 from openpyxl import load_workbook
 
 # ─── CONFIG ────────────────────────────────────────────────────────────────────
-INPUT_PATH = r"D:\Users\pramos\Desktop\Reportes_Python\Reporte_Dash_Bom\plan_produccion.xlsx"
+import os
+INPUT_PATH = os.path.join(os.path.dirname(__file__), "plan_produccion.xlsx")
 STOCK_ALMS = ["ALMA002", "ALMA089", "ALMA070", "ALMA071", "ALMA072"]
 
 # ─── CARGA ──────────────────────────────────────────────────────────────────────
