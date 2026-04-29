@@ -755,9 +755,9 @@ def render_tab(tab, data, tipos, pt_qty):
         g = df[df["Tipo"]=="Semiterminado"].groupby(
             ["Cod_Componente","Desc_Componente","Und","Tipo_Mat","Tipo_Mat2"],as_index=False)
         df_show = g.agg(Qty_Necesaria=("Qty_Necesaria","sum"),En_Stock=("En_Stock","first"),
-                        Diferencia=("Diferencia","first"),
                         **{"Precio_Prom_S/":("Precio_Prom_S/","first")},
                         **{"Valor_Nec_S/":("Valor_Nec_S/","sum")}).sort_values("Cod_Componente")
+        df_show["Diferencia"] = df_show["En_Stock"] - df_show["Qty_Necesaria"]
         cond = [c for c in cond if "Tipo}" not in str(c)]
     elif tab == "tab-comp":
         g = df[df["Tipo"]=="Comprado"].groupby(
